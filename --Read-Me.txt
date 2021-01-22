@@ -1,0 +1,13 @@
+EVERSPACE
+Open the  "game.html"  file to play.
+---------------------------------------
+"game.html"  file is just a menu.
+You can find the other files in "html" folder or "index.html".
+---------------------------------------
+Coach : DARKRAGE
+
+Developers :
+DARKRAGE
+
+// please all the devs from EVERSPACE write their name above.
+---------------------------------------
