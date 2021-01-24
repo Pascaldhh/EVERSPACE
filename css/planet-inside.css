@@ -25,7 +25,9 @@ body{
 /*  LAND  */
 
 .land1{
-
+background-color: black;
+height: 100px;
+width: 100px;
 }
 .land2{
 
@@ -37,5 +39,5 @@ body{
 
 }
 .land5{
-	
+
 }

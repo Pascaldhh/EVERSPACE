@@ -1,8 +1,9 @@
-var land=document.getElementById("land");
-var atmosphere=document.getElementById("atmosphere");
+var atmosphere=document.getElementsByClassName("atmosphere");
 
 function landclass(){
-	var landnumber = MATH.floor(MATH.random()*5+1);
-	alert(landnumber);
+	var core = document.createElement('land');
+	var landnumber = Math.floor(Math.random()*5+1);
+	core.classList.add("land1");
+	
 }
 landclass();
