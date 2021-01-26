@@ -1,43 +1,112 @@
 body{
 	margin: 0;
 	padding: 0;
-	border: none;
+	background-image: url("../images/space-1.jpg");
+	background-repeat: repeat-y;
+	background-size: cover;
+	overflow: hidden;
 }
+
 
 /* ATMOSPHERE */
+/*  "atmosphere0" is the same style for all atmospheres  */
 
+
+.atmosphere0{
+margin: 0;
+top: 50%;
+left: 50%;
+opacity: 0.5;
+border-radius: 100%;
+position: absolute;
+transform: translate(-50%, -20%);
+}
 .atmosphere1{
-
+background-color: lightblue;
+box-shadow: 0 0 130px 160px lightblue;
 }
 .atmosphere2{
-
+background-color: orange;
+box-shadow: 0 0 130px 160px orange;
 }
 .atmosphere3{
-
+background-color: red;
+opacity: 0.3;
+box-shadow: 0 0 130px 160px red;
 }
 .atmosphere4{
-
+background-color: yellow;
+box-shadow: 0 0 130px 160px yellow;
 }
 .atmosphere5{
-
+background-color: lightgreen;
+box-shadow: 0 0 130px 160px lightgreen;
 }
+.atmosphere6{
+background-color: purple;
+box-shadow: 0 0 130px 160px purple;
+}
+.atmosphere7{
+background-color: white;
+box-shadow: 0 0 130px 160px white;
+}
+.atmosphere8{
+background-color: slateblue;
+box-shadow: 0 0 130px 160px slateblue;
+}
+
 
 /*  LAND  */
+/*  "land0" is the same style for all lands  */
 
+
+.land0{
+background-repeat: repeat;
+border-radius: 100%;
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+box-shadow: 0 0 80px 40px black inset;
+transform: translate(-50%, 0%);
+}
 .land1{
-background-color: black;
-height: 100px;
-width: 100px;
+background-color: #D18E47;
+background-image: url("../images/dirt/1.png");
 }
 .land2{
-
+background-color: #EEB446;
+background-image: url("../images/dirt/2.png");
 }
 .land3{
-
+background-color: #7F4F21;
+background-image: url("../images/dirt/3.png");
 }
 .land4{
-
+background-color: #CDCED0;
+background-image: url("../images/dirt/4.png");
 }
 .land5{
-
+background-color: #96FEFF;
+background-image: url("../images/dirt/5.png");
+}
+.land6{
+background-color: #9F6F50;
+background-image: url("../images/dirt/6.png");
+}
+.land7{
+background-color: #725540;
+background-image: url("../images/dirt/7.png");
+}
+.land8{
+background-color: #7E6537;
+background-image: url("../images/dirt/8.png");
+}
+.land9{
+background-color: #B9D5EF;
+background-image: url("../images/dirt/9.png");
+}
+.land10{
+background-color: #98A6C2;
+background-image: url("../images/dirt/10.png");
 }
