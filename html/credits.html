@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EVERSPACE>>Credits</title>
+	<link rel="icon" href="../icon/menu.png">
+	<style type="text/css">
+		body, html{
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		#bg{
+			background: url("../images/credits-bg.jpg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			height: 100%;
+			width: 100%;
+			position: relative;
+		}
+		#text{
+			width: 100%;
+			position: absolute;
+			color: white;
+			font-family: monospace;
+			text-align: center;
+			opacity: 0.8;
+			user-select: none;
+		}
+		#backbutton{
+			border: none;
+			background: #000F34;
+			position: absolute;
+			color: white;
+			opacity: 0.8;
+			text-align: center;
+			user-select: none;
+			font-family: monospace;
+			transition-duration: 0.3s;
+			transform: skewX(-12deg);
+			border-left: 3px solid #1BA8B4;
+			border-right: 3px solid #1BA8B4;
+		}
+		#backbutton:focus{
+			outline: none;
+			transform: skewX(-12deg);
+		}
+		#backbutton:active{
+			opacity: 1;
+			transform: skewX(-12deg);
+		}
+		#backbutton:hover{
+			cursor: pointer;
+		}
+		samp{
+			color: lightblue;
+		}
+		small{
+			font-size: 24px;
+		}
+	</style>
+	<body onresize="styletext(); stylebg(); backbtn();">
+</head>
+<body>
+
+<div id="bg">
+	<button id="backbutton" onclick="goBack()">Back</button>
+<p id="text">
+	<samp>Developers</samp>
+	<br>---------
+	<br>DARKRAGE
+	<br>RipFantastic
+	<br>Gabokase
+	<br>XXIXIMMV
+	<br>Swann<small>68</small>
+	<br><br>
+	<samp>Designer</samp>
+	<br>---------
+	<br>camilath
+</p>
+</div>
+
+<!--	JAVASCRIPT    -->
+<script type="text/javascript">
+function styletext(){
+	var credits = document.querySelector("#text");
+	credits.style.fontSize = window.innerWidth/38+"px";
+	var cat = document.querySelector("samp");
+	cat.style.fontSize = window.innerWidth/32+"px";
+	credits.style.color="white";
+	credits.style.FontFamily="monospace";
+	credits.style.textAlign="center";
+	credits.style.top=window.innerHeight/8+"px";
+}
+function stylebg(){
+	var background = document.querySelector("#bg");
+	background.style.width = window.innerWidth+"px";
+	background.style.height = window.innerHeight+"px";
+}
+function backbtn(){
+	var btn = document.querySelector("#backbutton");
+	btn.style.width = window.innerWidth/15+"px";
+	btn.style.fontSize = window.innerWidth/45+"px";
+	btn.style.height = window.innerHeight/14+"px";
+	btn.style.top = window.innerHeight/34+"px";
+	btn.style.left = window.innerWidth/60+"px";
+}
+function goBack() {
+  window.history.back();
+}
+styletext();
+backbtn();
+</script>
+</body>
+</html>
+<!--  END OF THE FILE   -->
