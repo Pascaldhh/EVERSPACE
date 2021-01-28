@@ -90,10 +90,10 @@ btn:hover{
     }
 }
 h2{
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
     user-select: none;
 }
 h2:hover{
     opacity: 1;
-    color: blue;
+    color: #0C3569;
 }

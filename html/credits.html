@@ -23,7 +23,6 @@
 			position: absolute;
 			color: white;
 			font-family: monospace;
-			text-align: center;
 			opacity: 0.8;
 			user-select: none;
 		}
@@ -67,15 +66,17 @@
 	<button id="backbutton" onclick="goBack()">Back</button>
 <p id="text">
 	<samp>Developers</samp>
-	<br>---------
+	<br>----------
 	<br>DARKRAGE
 	<br>RipFantastic
 	<br>Gabokase
 	<br>XXIXIMMV
 	<br>Swann<small>68</small>
+	<br>Marzan
+	<br>Hasan
 	<br><br>
-	<samp>Designer</samp>
-	<br>---------
+	<samp id="head2">Designer</samp>
+	<br>----------
 	<br>camilath
 </p>
 </div>
@@ -84,9 +85,11 @@
 <script type="text/javascript">
 function styletext(){
 	var credits = document.querySelector("#text");
-	credits.style.fontSize = window.innerWidth/38+"px";
+	credits.style.fontSize = window.innerWidth/48+"px";
 	var cat = document.querySelector("samp");
 	cat.style.fontSize = window.innerWidth/32+"px";
+	var cat2 = document.querySelector("#head2");
+	cat2.style.fontSize = window.innerWidth/32+"px";
 	credits.style.color="white";
 	credits.style.FontFamily="monospace";
 	credits.style.textAlign="center";
