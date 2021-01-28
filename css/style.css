@@ -77,6 +77,13 @@ br {
 .logo, .btn button {
     user-select: none;
 }
+
+button:hover {
+
+cursor: pointer;
+
+}
+
 @media(min-width:545px) {
     .logo h1 {
         font-size: 100px;
