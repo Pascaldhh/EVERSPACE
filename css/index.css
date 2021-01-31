@@ -1,0 +1,56 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: darkblue;
+	background-image: url("../images/space-1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+#spaceship{
+	background-image: url("../images/spaceship.gif");
+	text-align: center;
+	background-repeat: repeat-y;
+	background-size: cover;
+	margin: 0;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+}
+#planet{
+	background-image: url("../images/planets/1.jpg");
+	box-shadow: 0 0 50px 25px black inset;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	top: 0;
+	border-radius: 50%;
+	background-color: white;
+}
+#planet2{
+	box-shadow: 0 0 30px 15px white;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+}
+
+/*	  UI    */
+#healthbar{
+	background-image: url("../images/UI/healthbar.png");
+	transform: scaleX(-1);
+	position: absolute;
+	top: -1px;
+	left: -6px;
+	width: 191px;
+	height: 51px;
+}
+#health{
+	background-image: url("../images/UI/health.png");
+	position: relative;
+	background-color: #00E6E7;
+	width: 181px;
+	height: 50px;
+}

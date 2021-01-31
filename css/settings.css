@@ -1,0 +1,41 @@
+body{
+	margin: 0;
+    padding:0;
+    background-color: black;
+    background-image: url("../images/space-1.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+#main{
+	border: 20px double #67D8EF;
+	background-color: white;
+	margin: 0 auto;
+	padding: 0;
+	opacity: 0.7;
+	text-align: center;
+}
+#head{
+	font-family: monospace;
+	text-align: center;
+	color: white;
+	margin-bottom: 10px;
+	user-select: none;
+}
+/*  The following block of code designs the scrollbar  */
+        ::-webkit-scrollbar{
+            width: 18px;  
+            
+        }
+        ::-webkit-scrollbar-track{
+            background-color:#21627C;
+            border-radius: 0px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: #32BED6;
+            border-radius: 0px;
+            border-left: 3px solid #21627C;
+            border-right:3px solid #21627C;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: #00E6E7;
+        }
