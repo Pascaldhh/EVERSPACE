@@ -13,25 +13,22 @@ body{
 	background-repeat: repeat-y;
 	background-size: cover;
 	margin: 0;
-	position: fixed;
-	top: 50%;
-	left: 50%;
+	position: absolute;
 	z-index: 10;
 }
 #planet{
-	background-image: url("../images/planets/10.png ");
 	box-shadow: 0 0 50px 25px black inset;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: absolute;
-	height: 200px;
-	width: 200px;
+	height: 150px;
+	width: 150px;
 	top: 0;
 	border-radius: 50%;
 	background-color: white;
 }
 #planet2{
-	box-shadow: 0 0 30px 15px white;
+	box-shadow: 0 0 30px 15px rgb(195, 195, 195);
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
@@ -47,63 +44,73 @@ body{
 	top: -1px;
 	left: -6px;
 	height: 51px;
+	z-index: 8;
 }
 #health{
 	background-image: url("../images/UI/health.png");
 	position: relative;
 	background-color: #00E6E7;
 	height: 50px;
+	z-index: 8;
+}
+#panel{
+	width: 100%;
+	height: 150px;
+	background-color: #9EA4AD;
+	opacity: 1;
+	position: absolute;
+	z-index: 50;
 }
 
 /*    PLANET STYLES    ( 50 PLANETS )		*/
 
-.planetstyle1{}
-.planetstyle2{}
-.planetstyle3{}
-.planetstyle4{}
-.planetstyle5{}
-.planetstyle6{}
-.planetstyle7{}
-.planetstyle8{}
-.planetstyle9{}
-.planetstyle10{}
-.planetstyle11{}
-.planetstyle12{}
-.planetstyle13{}
-.planetstyle14{}
-.planetstyle15{}
-.planetstyle16{}
-.planetstyle17{}
-.planetstyle18{}
-.planetstyle19{}
-.planetstyle20{}
-.planetstyle21{}
-.planetstyle22{}
-.planetstyle23{}
-.planetstyle24{}
-.planetstyle25{}
-.planetstyle26{}
-.planetstyle27{}
-.planetstyle28{}
-.planetstyle29{}
-.planetstyle30{}
-.planetstyle31{}
-.planetstyle32{}
-.planetstyle33{}
-.planetstyle34{}
-.planetstyle35{}
-.planetstyle36{}
-.planetstyle37{}
-.planetstyle38{}
-.planetstyle39{}
-.planetstyle40{}
-.planetstyle41{}
-.planetstyle42{}
-.planetstyle43{}
-.planetstyle44{}
-.planetstyle45{}
-.planetstyle46{}
-.planetstyle47{}
-.planetstyle48{}
-.planetstyle49{}
-.planetstyle50{}
+.planetstyle1 {background-image: url("../images/planets/1.png  ");}
+.planetstyle2 {background-image: url("../images/planets/2.png  ");}
+.planetstyle3 {background-image: url("../images/planets/3.png  ");}
+.planetstyle4 {background-image: url("../images/planets/4.png  ");}
+.planetstyle5 {background-image: url("../images/planets/5.png  ");}
+.planetstyle6 {background-image: url("../images/planets/6.png  ");}
+.planetstyle7 {background-image: url("../images/planets/7.png  ");}
+.planetstyle8 {background-image: url("../images/planets/8.png  ");}
+.planetstyle9 {background-image: url("../images/planets/9.png  ");}
+.planetstyle10{background-image: url("../images/planets/10.png ");}
+.planetstyle11{background-image: url("../images/planets/11.png ");}
+.planetstyle12{background-image: url("../images/planets/12.png ");}
+.planetstyle13{background-image: url("../images/planets/13.png ");}
+.planetstyle14{background-image: url("../images/planets/14.png ");}
+.planetstyle15{background-image: url("../images/planets/15.png ");}
+.planetstyle16{background-image: url("../images/planets/16.png ");}
+.planetstyle17{background-image: url("../images/planets/17.png ");}
+.planetstyle18{background-image: url("../images/planets/18.png ");}
+.planetstyle19{background-image: url("../images/planets/19.png ");}
+.planetstyle20{background-image: url("../images/planets/20.png ");}
+.planetstyle21{background-image: url("../images/planets/21.png ");}
+.planetstyle22{background-image: url("../images/planets/22.png ");}
+.planetstyle23{background-image: url("../images/planets/23.png ");}
+.planetstyle24{background-image: url("../images/planets/24.png ");}
+.planetstyle25{background-image: url("../images/planets/25.png ");}
+.planetstyle26{background-image: url("../images/planets/26.png ");}
+.planetstyle27{background-image: url("../images/planets/27.png ");}
+.planetstyle28{background-image: url("../images/planets/28.png ");}
+.planetstyle29{background-image: url("../images/planets/29.png ");}
+.planetstyle30{background-image: url("../images/planets/30.png ");}
+.planetstyle31{background-image: url("../images/planets/31.png ");}
+.planetstyle32{background-image: url("../images/planets/32.png ");}
+.planetstyle33{background-image: url("../images/planets/33.png ");}
+.planetstyle34{background-image: url("../images/planets/34.png ");}
+.planetstyle35{background-image: url("../images/planets/35.png ");}
+.planetstyle36{background-image: url("../images/planets/36.png ");}
+.planetstyle37{background-image: url("../images/planets/37.png ");}
+.planetstyle38{background-image: url("../images/planets/38.png ");}
+.planetstyle39{background-image: url("../images/planets/39.png ");}
+.planetstyle40{background-image: url("../images/planets/40.png ");}
+.planetstyle41{background-image: url("../images/planets/41.png ");}
+.planetstyle42{background-image: url("../images/planets/42.png ");}
+.planetstyle43{background-image: url("../images/planets/43.png ");}
+.planetstyle44{background-image: url("../images/planets/44.png ");}
+.planetstyle45{background-image: url("../images/planets/45.png ");}
+.planetstyle46{background-image: url("../images/planets/46.png ");}
+.planetstyle47{background-image: url("../images/planets/47.png ");}
+.planetstyle48{background-image: url("../images/planets/48.png ");}
+.planetstyle49{background-image: url("../images/planets/49.png ");}
+.planetstyle50{background-image: url("../images/planets/50.png ");}
