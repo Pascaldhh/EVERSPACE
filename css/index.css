@@ -19,7 +19,7 @@ body{
 	z-index: 10;
 }
 #planet{
-	background-image: url("../images/planets/1.jpg");
+	background-image: url("../images/planets/10.png ");
 	box-shadow: 0 0 50px 25px black inset;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -40,17 +40,70 @@ body{
 /*	  UI    */
 #healthbar{
 	background-image: url("../images/UI/healthbar.png");
+	background-repeat: no-repeat;
+	background-size: cover;
 	transform: scaleX(-1);
 	position: absolute;
 	top: -1px;
 	left: -6px;
-	width: 191px;
 	height: 51px;
 }
 #health{
 	background-image: url("../images/UI/health.png");
 	position: relative;
 	background-color: #00E6E7;
-	width: 181px;
 	height: 50px;
 }
+
+/*    PLANET STYLES    ( 50 PLANETS )		*/
+
+.planetstyle1{}
+.planetstyle2{}
+.planetstyle3{}
+.planetstyle4{}
+.planetstyle5{}
+.planetstyle6{}
+.planetstyle7{}
+.planetstyle8{}
+.planetstyle9{}
+.planetstyle10{}
+.planetstyle11{}
+.planetstyle12{}
+.planetstyle13{}
+.planetstyle14{}
+.planetstyle15{}
+.planetstyle16{}
+.planetstyle17{}
+.planetstyle18{}
+.planetstyle19{}
+.planetstyle20{}
+.planetstyle21{}
+.planetstyle22{}
+.planetstyle23{}
+.planetstyle24{}
+.planetstyle25{}
+.planetstyle26{}
+.planetstyle27{}
+.planetstyle28{}
+.planetstyle29{}
+.planetstyle30{}
+.planetstyle31{}
+.planetstyle32{}
+.planetstyle33{}
+.planetstyle34{}
+.planetstyle35{}
+.planetstyle36{}
+.planetstyle37{}
+.planetstyle38{}
+.planetstyle39{}
+.planetstyle40{}
+.planetstyle41{}
+.planetstyle42{}
+.planetstyle43{}
+.planetstyle44{}
+.planetstyle45{}
+.planetstyle46{}
+.planetstyle47{}
+.planetstyle48{}
+.planetstyle49{}
+.planetstyle50{}
