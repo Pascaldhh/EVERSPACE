@@ -17,7 +17,8 @@ body{
 	z-index: 10;
 }
 #planet{
-	box-shadow: 0 0 50px 25px black inset;
+	animation: rotation 120s infinite linear;
+	box-shadow: 0 0 50px 20px black inset;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: absolute;
@@ -27,13 +28,30 @@ body{
 	border-radius: 50%;
 	background-color: white;
 }
+#planet:hover{
+	outline: 5px dashed white;
+}
+/*
+	"planet2" id was created, and work as atmosphere(the outer shadow) of the planet.
+	because "planet" already have a shadow(the inner shadow for shading the planet),
+	The reason for doing this is that we can't give a single DIV, two shadows, so
+	i created a SUB DIV (planet2) for the atmosphere(the outer shadow).
+*/
 #planet2{
 	box-shadow: 0 0 30px 15px rgb(195, 195, 195);
 	height: 100%;
 	width: 100%;
 	border-radius: 50%;
 }
-
+#astroid1{
+	height: 90px;
+	width: 90px;
+	position: absolute;
+	animation: rotation 20s infinite linear;
+	background-image:url(../images/planets/astroid.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 /*	  UI    */
 #healthbar{
 	background-image: url("../images/UI/healthbar.png");
@@ -52,14 +70,6 @@ body{
 	background-color: #00E6E7;
 	height: 50px;
 	z-index: 8;
-}
-#panel{
-	width: 100%;
-	height: 150px;
-	background-color: #9EA4AD;
-	opacity: 1;
-	position: absolute;
-	z-index: 50;
 }
 
 /*    PLANET STYLES    ( 50 PLANETS )		*/
@@ -114,3 +124,8 @@ body{
 .planetstyle48{background-image: url("../images/planets/48.png ");}
 .planetstyle49{background-image: url("../images/planets/49.png ");}
 .planetstyle50{background-image: url("../images/planets/50.png ");}
+/*	 ROTATION OF PLANETS	*/
+@keyframes rotation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
+}
