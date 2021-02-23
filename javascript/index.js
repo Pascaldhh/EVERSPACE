@@ -15,8 +15,10 @@ function astroidSize() {
 	ast1.style.width=window.innerWidth/18+"px";
 	ast1.style.height=window.innerWidth/18+"px";
 }
-function UpdateHealth() {
+function UpdateHealth(damage) {
 	let health=document.querySelector("#health");
+	myhealth-=damage;
+	health.style.width=myhealth+"px";
 }
 //    MOVEMENTS
 /*
@@ -121,6 +123,31 @@ function randomAstroid1() {
 		astroid1.style.left="10px";
 	}
 }
+
+/*	 COLLISION DETECTION (ASTROID1)	*/
+var astr1 = document.querySelector('#astroid1'),
+    ship1 = document.getElementById('spaceship');
+doElsCollide = function(el1, el2) {
+    astr1.offsetBottom = astr1.offsetTop + astr1.offsetHeight;
+    astr1.offsetRight = astr1.offsetLeft + astr1.offsetWidth;
+    ship1.offsetBottom = ship1.offsetTop + ship1.offsetHeight;
+    ship1.offsetRight = ship1.offsetLeft + ship1.offsetWidth;
+    
+    return !((astr1.offsetBottom < ship1.offsetTop) ||
+             (astr1.offsetTop > ship1.offsetBottom) ||
+             (astr1.offsetRight < ship1.offsetLeft) ||
+             (astr1.offsetLeft > ship1.offsetRight))
+};
+window.setInterval(function(){
+  if (doElsCollide(astr1, ship1) == true) {
+  	
+  	UpdateHealth(speed/2);
+
+} 
+else if(doElsCollide(astr1, ship1) == false) {
+
+}}, 200);
+
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/
 	// RANDOM PLANET STYLE
     let number_for_planet=Math.floor(Math.random() * 50)+1;
@@ -130,7 +157,7 @@ function randomAstroid1() {
 	let health = document.querySelector("#health");
 	healthbar.style.width = window.innerWidth/7+"px";
 	health.style.width = window.innerWidth/7.5+"px";
-
+	var myhealth=health.offsetWidth;
 /*		 CALLING THE FUNCTIONS		*/
 planetSize();
 spaceshipSize();
