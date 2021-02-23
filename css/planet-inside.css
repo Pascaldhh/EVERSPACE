@@ -6,20 +6,26 @@ body{
 	background-size: cover;
 	overflow: hidden;
 }
-
+#player{
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	height: 100px;
+	width: 60px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -100%);
+}
 
 /* ATMOSPHERE */
 /*  "atmosphere0" is the same style for all atmospheres  */
 
-
 .atmosphere0{
 margin: 0;
-top: 50%;
-left: 50%;
 opacity: 0.5;
 border-radius: 100%;
 position: absolute;
-transform: translate(-50%, -20%);
 }
 .atmosphere1{
 background-color: lightblue;
@@ -55,7 +61,6 @@ background-color: slateblue;
 box-shadow: 0 0 130px 160px slateblue;
 }
 
-
 /*  LAND  */
 /*  "land0" is the same style for all lands  */
 
@@ -65,10 +70,7 @@ background-repeat: repeat;
 border-radius: 100%;
 margin: 0;
 position: absolute;
-top: 50%;
-left: 50%;
 box-shadow: 0 0 80px 40px black inset;
-transform: translate(-50%, 0%);
 }
 .land1{
 background-color: #D18E47;

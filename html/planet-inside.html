@@ -1,6 +1,5 @@
 <!--
- This is the random planet gerenrating page. it is connected with "planet-inside.css" & "planet-inside.js"...
- you will find these two files in their respective folders.
+ This is the random planet gerenrating page. it is connected with "planet-inside.css" & "planet-inside.js".You will find these two files in their respective folders.
 -->
 <!DOCTYPE html>
 <html>
@@ -8,11 +7,12 @@
 	<title>Unknown Planet</title>
 	<link rel="stylesheet" href="../css/planet-inside.css">
 	<link rel="icon" href="../icon/icon.png">
-	<body onresize="landclass() atmosphereclass()">
+	<body onresize="landclass(); alignAtmosphere(); alignLand();">
 </head>
 <body>
 	<div id="atmosphere" class="atmosphere0"></div>
 	<div id="land" class="land0"></div>
+	<div id="player"></div>
 
 <script src="../javascript/planet-inside.js"></script>
 </body>
