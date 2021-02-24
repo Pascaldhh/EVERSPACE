@@ -140,12 +140,17 @@ doElsCollide = function(el1, el2) {
 };
 window.setInterval(function(){
   if (doElsCollide(astr1, ship1) == true) {
-  	
   	UpdateHealth(speed/2);
-
+  	ship1.style.animation="shake 0.5s";
+  	ship1.style.animationIterationCount="infinite";
+  	let asteRef=Math.floor(Math.random()*2);
+  	if(asteRef==0){Math.floor(astroid1Y-=speed/3);} 
+  	else if(asteRef==1){Math.floor(astroid1Y+=speed/3);} 
+	astroid1.style.top=astroid1Y+"px"; 
 } 
 else if(doElsCollide(astr1, ship1) == false) {
-
+	ship1.style.animation="none";
+  	ship1.style.animationIterationCount="none";
 }}, 200);
 
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/

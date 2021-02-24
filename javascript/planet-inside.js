@@ -3,17 +3,18 @@ The following functions randomly chooses land and atmosphere to the planet.
 Land types = 10, Atmosphere types = 8.
 */
 function landClass() {
-
+	let core=document.querySelector("#land");
 	var landnumber = Math.floor(Math.random()*10+1);
-	core.classList.add(`land${landnumber}`);
+	core.className="land"+landnumber+" "+"land0";
 	core.style.width=window.innerWidth-window.innerWidth/4+"px";
 	core.style.height=window.innerWidth-window.innerWidth/4+"px";
 }
 
 function atmosphereClass (){
-
+	let core=document.querySelector("#land");
+	let sky=document.querySelector("#atmosphere");
 	var atmospherenumber = Math.floor(Math.random()*8+1);
-	core.classList.add(`atmosphere${atmospherenumber}`); 
+	sky.className="atmosphere"+atmospherenumber+" "+"atmosphere0";
 	sky.style.width=window.innerWidth+window.innerWidth/5+"px";
 	sky.style.height=window.innerWidth+window.innerWidth/5+"px";
 
@@ -59,8 +60,8 @@ function move(e) {
 }
 document.onkeydown=move;
 /*	 CALLING THE FUNCTIONS	*/
-landclass();
-atmosphereclass();
+landClass();
+atmosphereClass();
 alignAtmosphere();
 alignLand();
 
