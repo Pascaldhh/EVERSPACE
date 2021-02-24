@@ -32,25 +32,25 @@ background-color: lightblue;
 box-shadow: 0 0 130px 160px lightblue;
 }
 .atmosphere2{
-background-color: orange;
-box-shadow: 0 0 130px 160px orange;
+background-color: #EBB2D5;
+box-shadow: 0 0 130px 160px #EBB2D5;
 }
 .atmosphere3{
-background-color: red;
+background-color: #FBD1D3;
 opacity: 0.3;
-box-shadow: 0 0 130px 160px red;
+box-shadow: 0 0 130px 160px #FBD1D3;
 }
 .atmosphere4{
-background-color: yellow;
-box-shadow: 0 0 130px 160px yellow;
+background-color: #F198AE;
+box-shadow: 0 0 130px 160px #F198AE;
 }
 .atmosphere5{
 background-color: lightgreen;
 box-shadow: 0 0 130px 160px lightgreen;
 }
 .atmosphere6{
-background-color: purple;
-box-shadow: 0 0 130px 160px purple;
+background-color: #A081CD;
+box-shadow: 0 0 130px 160px #A081CD;
 }
 .atmosphere7{
 background-color: white;

@@ -6,6 +6,9 @@ function landClass() {
 	let core=document.querySelector("#land");
 	var landnumber = Math.floor(Math.random()*10+1);
 	core.className="land"+landnumber+" "+"land0";
+}
+function landsize() {
+	let core=document.querySelector("#land");
 	core.style.width=window.innerWidth-window.innerWidth/4+"px";
 	core.style.height=window.innerWidth-window.innerWidth/4+"px";
 }
@@ -15,11 +18,12 @@ function atmosphereClass (){
 	let sky=document.querySelector("#atmosphere");
 	var atmospherenumber = Math.floor(Math.random()*8+1);
 	sky.className="atmosphere"+atmospherenumber+" "+"atmosphere0";
+}
+function atmospheresize() {
+	let sky=document.querySelector("#atmosphere");
 	sky.style.width=window.innerWidth+window.innerWidth/5+"px";
 	sky.style.height=window.innerWidth+window.innerWidth/5+"px";
-
 }
-
 
 /* 
  calling the two functions... this will couse a random planet everytime the
@@ -61,7 +65,9 @@ function move(e) {
 document.onkeydown=move;
 /*	 CALLING THE FUNCTIONS	*/
 landClass();
+landsize();
 atmosphereClass();
+atmospheresize();
 alignAtmosphere();
 alignLand();
 
