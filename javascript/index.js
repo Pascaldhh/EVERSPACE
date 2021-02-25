@@ -19,6 +19,7 @@ function UpdateHealth(damage) {
 	let health=document.querySelector("#health");
 	myhealth-=damage;
 	health.style.width=myhealth+"px";
+	if (myhealth<=5){ableToMove=false; ship.style.filter="hue-rotate(90deg)";}
 }
 //    MOVEMENTS
 /*
@@ -35,6 +36,7 @@ var planetX=window.innerWidth+Math.floor(Math.random() * 500);
 var astroid1X=window.innerWidth*2;
 var planetY=Math.floor(Math.random()* window.innerHeight);
 var astroid1Y=Math.floor(Math.random()* window.innerHeight);
+let ableToMove=true;
 let speed = 40;
 /*
 A function for getting key-inputs and working with them, is declared below.
@@ -42,32 +44,38 @@ It contains the "W, A, S, D" keys for movement.
 */
 function movements(e) {
 	// A
-if(e.keyCode==68){
+if(e.keyCode==68 && ableToMove==true){
     planetX-=speed;
     planet1.style.left=planetX+"px";
     astroid1X-=speed*1.5;
     astroid1.style.left=astroid1X+"px";
         ship.style.transform="scaleX(1)";
 }	// D
-else if(e.keyCode==65){
+else if(e.keyCode==65 && ableToMove==true){
  	planetX+=speed;
  	planet1.style.left=planetX+"px"; 
  	astroid1X+=speed*1.5;
  	astroid1.style.left=astroid1X+"px"; 
  		ship.style.transform="scaleX(-1)";
 }	// S
-else if(e.keyCode==87){ 
+else if(e.keyCode==87 && ableToMove==true){ 
 	planetY+=speed; 
 	planet1.style.top=planetY+"px"; 
 	astroid1Y+=speed; 
 	astroid1.style.top=astroid1Y+"px"; 
 }	// W
-else if(e.keyCode==83){ 
+else if(e.keyCode==83 && ableToMove==true){ 
 	planetY-=speed; 
 	planet1.style.top=planetY+"px"; 
 	astroid1Y-=speed; 
 	astroid1.style.top=astroid1Y+"px"; 
-}	// END OF KEYS
+}
+else if
+(ableToMove==false&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
+	ship1.style.animation="shake 0.5s";
+  	ship1.style.animationIterationCount="infinite";
+}
+	// END OF KEYS
     randomPlanet();
     randomAstroid1();
 }
