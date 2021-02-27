@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="icon" href="../icon/icon.png">
-    <body onresize="spaceshipSize(); planetSize(); UpdateHealth(); astroidSize();">
+    <body onresize="spaceshipSize(); planetSize(); UpdateHealth(); astroidSize(); menuitems();">
     <title>EVERSPACE</title>
 </head>
 <body>
 	<!--	UI	  -->
+	<div id="sidemenu">
+		<div class="sidemenuItem item1" onclick="view();">Enter full screen</div>
+		<div class="sidemenuItem item2">Inventory</div>
+		<div class="sidemenuItem item3">item 3</div>
+		<div class="sidemenuItem item4">item 4</div>
+		<div class="sidemenuItem item5">item 5</div>
+		<div class="sidemenuItem item6" onclick="exit();">Exit to main-menu</div>
+	</div>
+	<button id="menubutton" onclick="showMenu();"></button>
 	<div id="health" title=":  Health  :"><div id="healthbar"></div></div>
 	<!--	Others	-->
     <div id="spaceship"></div>

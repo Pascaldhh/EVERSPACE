@@ -15,8 +15,15 @@ function astroidSize() {
 	ast1.style.width=window.innerWidth/18+"px";
 	ast1.style.height=window.innerWidth/18+"px";
 }
+function sidemenuSize() {
+	menu.style.width=window.innerWidth/6+"px";
+}
+function menubuttonSize() {
+	let button=document.querySelector("#menubutton");
+	button.style.width=window.innerWidth/20+"px";
+	button.style.height=window.innerWidth/24+"px";
+}
 function UpdateHealth(damage) {
-	let health=document.querySelector("#health");
 	myhealth-=damage;
 	health.style.width=myhealth+"px";
 	if (myhealth<=5){ableToMove=false; ship.style.filter="hue-rotate(90deg)";}
@@ -97,7 +104,6 @@ EXAMPLE:
 */
 function randomPlanet() {
 	let planetleft="-"+window.innerWidth*2;
-	let planetright=window.innerWidth*2;
 	//	LEFT
 	if (planetX<=planetleft) {
 		planetX=window.innerWidth+Math.floor(Math.random()* 500);
@@ -107,28 +113,15 @@ function randomPlanet() {
         let number_for_planet=Math.floor(Math.random() * 50)+1;
         planet1.className ="planetstyle"+number_for_planet;
 	}
-	//	RIGHT
-	else if (planetX>=planetright) {
-		planetX=window.innerWidth+50;
-		planet1.style.left="10px";
-        let number_for_planet=Math.floor(Math.random() * 50)+1;
-        planet1.className ="planetstyle"+number_for_planet;
-	}
 }
 function randomAstroid1() {
 	let astroid1left="-"+window.innerWidth*2;
-	let astroid1right=window.innerWidth*2;
 	//	LEFT
 	if (astroid1X<=astroid1left) {
 		astroid1X=window.innerWidth+Math.floor(Math.random()* 200);
 		astroid1.style.left=astroid1X+"px";
 		astroid1Y=Math.floor(Math.random()* window.innerHeight);
 		astroid1.style.top=astroid1Y+"px";
-	}
-	//	RIGHT
-	else if (astroid1X>=astroid1right) {
-		astroid1X=window.innerWidth+50;
-		astroid1.style.left="10px";
 	}
 }
 
@@ -160,6 +153,75 @@ else if(doElsCollide(astr1, ship1) == false) {
 	ship1.style.animation="none";
   	ship1.style.animationIterationCount="none";
 }}, 200);
+/*	 ENTER OR EXIT FULL SCREEN	*/
+// NO NEED TO MODIFY THIS CODE IT WILL BE THE SAME FOREVER.
+var btnnum=1;
+function view() {
+	if (btnnum==1){openFullscreen(); btnnum++;}
+	else if (btnnum==2){closeFullscreen(); btnnum--;}
+	menuitems();
+}
+var screen = document.documentElement;
+function openFullscreen() {
+  if (screen.requestFullscreen) {
+    screen.requestFullscreen();
+  } else if (screen.webkitRequestFullscreen) { /* Safari */
+    screen.webkitRequestFullscreen();
+  } else if (screen.msRequestFullscreen) { /* IE11 */
+    screen.msRequestFullscreen();
+  }item1.innerHTML="Exit full screen";}
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }item1.innerHTML="Enter full screen";}
+
+  /*	SIDE MENU	(this code needs to be refactored)*/
+let menunumber=1;
+  	let menu=document.querySelector("#sidemenu");
+  	let menubutton=document.querySelector("#menubutton");
+function showMenu() {item6.classList.toggle("sidemenuItem");
+	if(menunumber==0){menu.style.opacity=1;
+		menu.style.right=0+"px";menunumber++;
+		menubutton.style.right=0+menu.offsetWidth-menubutton.offsetWidth-5+"px";
+		menubutton.style.backgroundImage="url('../images/UI/menubutton2.png')";
+	}
+	else{menu.style.opacity=0;
+		menubutton.style.backgroundImage="url('../images/UI/menubutton.png')";
+		menu.style.right=0-menu.offsetWidth+"px";menunumber--;
+		menubutton.style.right=0;
+	}exitnumber=0;
+}
+function exit() {
+	if (exitnumber==0){item6.classList.toggle("sidemenuexitbutton"); exitnumber=1;}
+	else{window.location='../main-menu.html';exitnumber=0;}
+}
+function menuitems(){
+	let menubuttonheight=menubutton.offsetHeight+item1.offsetHeight/4;
+	item1.style.top=menubuttonheight+"px";
+	item2.style.top=menubuttonheight+item1.offsetHeight+"px";
+	item3.style.top=menubuttonheight+item1.offsetHeight*2+"px";
+	item4.style.top=menubuttonheight+item1.offsetHeight*3+"px";
+	item5.style.top=menubuttonheight+item1.offsetHeight*4+"px";
+	item6.style.top=menubuttonheight+item1.offsetHeight*5+"px";
+	//	 FONT SIZE
+	item1.style.fontSize=item1.offsetHeight/3+"px";
+	item2.style.fontSize=item1.offsetHeight/2.5+"px";
+	item3.style.fontSize=item1.offsetHeight/2+"px";
+	item4.style.fontSize=item1.offsetHeight/2+"px";
+	item5.style.fontSize=item1.offsetHeight/2+"px";
+	item6.style.fontSize=item1.offsetHeight/3+"px";
+	//	 CENTER ALIGNING
+	item1.style.lineHeight=item1.offsetHeight+"px";
+	item2.style.lineHeight=item1.offsetHeight+"px";
+	item3.style.lineHeight=item1.offsetHeight+"px";
+	item4.style.lineHeight=item1.offsetHeight+"px";
+	item5.style.lineHeight=item1.offsetHeight+"px";
+	item6.style.lineHeight=item1.offsetHeight+"px";
+}
 
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/
 	// RANDOM PLANET STYLE
@@ -171,7 +233,19 @@ else if(doElsCollide(astr1, ship1) == false) {
 	healthbar.style.width = window.innerWidth/7+"px";
 	health.style.width = window.innerWidth/7.5+"px";
 	var myhealth=health.offsetWidth;
-/*		 CALLING THE FUNCTIONS		*/
+	menu.style.right=0-menu.offsetWidth+"px";
+	let item1 = document.querySelector(".item1");
+	let item2 = document.querySelector(".item2");
+	let item3 = document.querySelector(".item3");
+	let item4 = document.querySelector(".item4");
+	let item5 = document.querySelector(".item5");
+	let item6 = document.querySelector(".item6");
+	let exitnumber=0;
+/*		 CALLING THE FUNCTIONS		*/	
+showMenu();
 planetSize();
 spaceshipSize();
 astroidSize();
+menubuttonSize();
+sidemenuSize();
+menuitems();
