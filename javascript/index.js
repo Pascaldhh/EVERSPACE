@@ -193,10 +193,10 @@ function showMenu() {item6.classList.toggle("sidemenuItem");
 		menubutton.style.backgroundImage="url('../images/UI/menubutton.png')";
 		menu.style.right=0-menu.offsetWidth+"px";menunumber--;
 		menubutton.style.right=0;
-	}exitnumber=0;
+	}exitnumber=0;item6.className="sidemenuItem";
 }
 function exit() {
-	if (exitnumber==0){item6.classList.toggle("sidemenuexitbutton"); exitnumber=1;}
+	if (exitnumber==0){item6.className="sidemenuexitbutton"; exitnumber=1;}
 	else{window.location='../main-menu.html';exitnumber=0;}
 }
 function menuitems(){
