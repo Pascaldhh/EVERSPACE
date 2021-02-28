@@ -10,8 +10,8 @@ function planetSize() {
 	world.style.width=window.innerWidth/9+"px";
 	world.style.height=window.innerWidth/9+"px";
 }
-function astroidSize() {
-	let ast1 = document.querySelector('#astroid1');
+function asteroidSize() {
+	let ast1 = document.querySelector('#asteroid1');
 	ast1.style.width=window.innerWidth/18+"px";
 	ast1.style.height=window.innerWidth/18+"px";
 }
@@ -38,11 +38,11 @@ EXAMPLE:
 */
 var ship=document.querySelector('#spaceship');
 var planet1=document.querySelector("#planet");
-var astroid1=document.querySelector("#astroid1");
+var asteroid1=document.querySelector("#asteroid1");
 var planetX=window.innerWidth+Math.floor(Math.random() * 500);
-var astroid1X=window.innerWidth*2;
+var asteroid1X=window.innerWidth*2;
 var planetY=Math.floor(Math.random()* window.innerHeight);
-var astroid1Y=Math.floor(Math.random()* window.innerHeight);
+var asteroid1Y=Math.floor(Math.random()* window.innerHeight);
 let ableToMove=true;
 let speed = 40;
 /*
@@ -54,28 +54,28 @@ function movements(e) {
 if(e.keyCode==68 && ableToMove==true){
     planetX-=speed;
     planet1.style.left=planetX+"px";
-    astroid1X-=speed*1.5;
-    astroid1.style.left=astroid1X+"px";
+    asteroid1X-=speed*1.5;
+    asteroid1.style.left=asteroid1X+"px";
         ship.style.transform="scaleX(1)";
 }	// D
 else if(e.keyCode==65 && ableToMove==true){
  	planetX+=speed;
  	planet1.style.left=planetX+"px"; 
- 	astroid1X+=speed*1.5;
- 	astroid1.style.left=astroid1X+"px"; 
+ 	asteroid1X+=speed*1.5;
+ 	asteroid1.style.left=asteroid1X+"px"; 
  		ship.style.transform="scaleX(-1)";
 }	// S
 else if(e.keyCode==87 && ableToMove==true){ 
 	planetY+=speed; 
 	planet1.style.top=planetY+"px"; 
-	astroid1Y+=speed; 
-	astroid1.style.top=astroid1Y+"px"; 
+	asteroid1Y+=speed; 
+	asteroid1.style.top=asteroid1Y+"px"; 
 }	// W
 else if(e.keyCode==83 && ableToMove==true){ 
 	planetY-=speed; 
 	planet1.style.top=planetY+"px"; 
-	astroid1Y-=speed; 
-	astroid1.style.top=astroid1Y+"px"; 
+	asteroid1Y-=speed; 
+	asteroid1.style.top=asteroid1Y+"px"; 
 }
 else if
 (ableToMove==false&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
@@ -84,12 +84,12 @@ else if
 }
 	// END OF KEYS
     randomPlanet();
-    randomAstroid1();
+    randomAsteroid1();
 }
 planet1.style.left=planetX+"px";
 planet1.style.top=planetY+"px";
-astroid1.style.left=astroid1X+"px";
-astroid1.style.top=astroid1Y+"px";
+asteroid1.style.left=asteroid1X+"px";
+asteroid1.style.top=asteroid1Y+"px";
 document.onkeydown = movements;
 
 /*  RANDOM SPWNING OF PLANET AND OTHER STUFF.
@@ -114,19 +114,19 @@ function randomPlanet() {
         planet1.className ="planetstyle"+number_for_planet;
 	}
 }
-function randomAstroid1() {
-	let astroid1left="-"+window.innerWidth*2;
+function randomAsteroid1() {
+	let asteroid1left="-"+window.innerWidth*2;
 	//	LEFT
-	if (astroid1X<=astroid1left) {
-		astroid1X=window.innerWidth+Math.floor(Math.random()* 200);
-		astroid1.style.left=astroid1X+"px";
-		astroid1Y=Math.floor(Math.random()* window.innerHeight);
-		astroid1.style.top=astroid1Y+"px";
+	if (asteroid1X<=asteroid1left) {
+		asteroid1X=window.innerWidth+Math.floor(Math.random()* 200);
+		asteroid1.style.left=asteroid1X+"px";
+		asteroid1Y=Math.floor(Math.random()* window.innerHeight);
+		asteroid1.style.top=asteroid1Y+"px";
 	}
 }
 
-/*	 COLLISION DETECTION (ASTROID1)	*/
-var astr1 = document.querySelector('#astroid1'),
+/*	 COLLISION DETECTION (ASTEROID1)	*/
+var astr1 = document.querySelector('#asteroid1'),
     ship1 = document.getElementById('spaceship');
 doElsCollide = function(el1, el2) {
     astr1.offsetBottom = astr1.offsetTop + astr1.offsetHeight;
@@ -145,9 +145,9 @@ window.setInterval(function(){
   	ship1.style.animation="shake 0.5s";
   	ship1.style.animationIterationCount="infinite";
   	let asteRef=Math.floor(Math.random()*2);
-  	if(asteRef==0){Math.floor(astroid1Y-=speed/3);} 
-  	else if(asteRef==1){Math.floor(astroid1Y+=speed/3);} 
-	astroid1.style.top=astroid1Y+"px"; 
+  	if(asteRef==0){Math.floor(asteroid1Y-=speed/3);} 
+  	else if(asteRef==1){Math.floor(asteroid1Y+=speed/3);} 
+	asteroid1.style.top=asteroid1Y+"px"; 
 } 
 else if(doElsCollide(astr1, ship1) == false) {
 	ship1.style.animation="none";
@@ -245,7 +245,7 @@ function menuitems(){
 showMenu();
 planetSize();
 spaceshipSize();
-astroidSize();
+asteroidSize();
 menubuttonSize();
 sidemenuSize();
 menuitems();
