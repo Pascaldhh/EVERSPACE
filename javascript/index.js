@@ -112,6 +112,14 @@ function randomPlanet() {
 		planet1.style.top=planetY+"px";
         let number_for_planet=Math.floor(Math.random() * 50)+1;
         planet1.className ="planetstyle"+number_for_planet;
+	}//  RIGHT
+	else if (planetX>=window.innerWidth*2) {
+		planetX=-window.innerWidth+Math.floor(Math.random()* 500);
+		planet1.style.left=planetX+"px";
+		planetY=Math.floor(Math.random()* window.innerHeight);
+		planet1.style.top=planetY+"px";
+        let number_for_planet=Math.floor(Math.random() * 50)+1;
+        planet1.className ="planetstyle"+number_for_planet;
 	}
 }
 function randomAsteroid1() {
@@ -119,6 +127,12 @@ function randomAsteroid1() {
 	//	LEFT
 	if (asteroid1X<=asteroid1left) {
 		asteroid1X=window.innerWidth+Math.floor(Math.random()* 200);
+		asteroid1.style.left=asteroid1X+"px";
+		asteroid1Y=Math.floor(Math.random()* window.innerHeight);
+		asteroid1.style.top=asteroid1Y+"px";
+	}//  RIGHT
+	else if(asteroid1X>=window.innerWidth*2){
+		asteroid1X=-window.innerWidth+Math.floor(Math.random()* 200);
 		asteroid1.style.left=asteroid1X+"px";
 		asteroid1Y=Math.floor(Math.random()* window.innerHeight);
 		asteroid1.style.top=asteroid1Y+"px";
@@ -195,7 +209,7 @@ function showMenu() {item6.classList.toggle("sidemenuItem");
 		menubutton.style.right=0;
 	}exitnumber=0;item6.className="sidemenuItem";
 }
-function exit() {
+function exit() {  //	THIS FUNCTION GIVES YOU A WARNING ON FIRST CLICK
 	if (exitnumber==0){item6.className="sidemenuexitbutton"; exitnumber=1;}
 	else{window.location='../main-menu.html';exitnumber=0;}
 }
