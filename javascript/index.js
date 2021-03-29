@@ -28,6 +28,20 @@ function UpdateHealth(damage) {
 	health.style.width=myhealth+"px";
 	if (myhealth<=5){ableToMove=false; ship.style.filter="hue-rotate(90deg)";}
 }
+function UpdateFuel(arg) {
+	myfuel-=arg;
+	fuel.style.width=myfuel+"px";
+	if (myfuel<=0){ableToMove=false; ship.style.filter="grayscale(100%)";}
+}
+function gearSize() {
+	let geartxt = document.querySelector("samp");
+	geartxt.style.fontSize=window.innerWidth/35+"px";
+	let gearhandle=document.querySelector("#gearhandle");
+
+	gearhandle.style.borderBottom=gearhandle.offsetHeight/2+"px solid #282923";
+	gearhandle.style.fontSize=gearhandle.offsetHeight/4+"px";
+
+}
 //    MOVEMENTS
 /*
 First of all, all the DIVs are imported from HTML file, in form of variables.
@@ -44,41 +58,52 @@ var asteroid1X=window.innerWidth*2;
 var planetY=Math.floor(Math.random()* window.innerHeight);
 var asteroid1Y=Math.floor(Math.random()* window.innerHeight);
 let ableToMove=true;
-let speed = 40;
+let speed = 10;
 /*
 A function for getting key-inputs and working with them, is declared below.
 It contains the "W, A, S, D" keys for movement.
 */
 function movements(e) {
-	// A
+	// D
 if(e.keyCode==68 && ableToMove==true){
     planetX-=speed;
     planet1.style.left=planetX+"px";
     asteroid1X-=speed*1.5;
     asteroid1.style.left=asteroid1X+"px";
         ship.style.transform="scaleX(1)";
-}	// D
+    UpdateFuel(speed/120);
+}	// A
 else if(e.keyCode==65 && ableToMove==true){
  	planetX+=speed;
  	planet1.style.left=planetX+"px"; 
  	asteroid1X+=speed*1.5;
  	asteroid1.style.left=asteroid1X+"px"; 
  		ship.style.transform="scaleX(-1)";
-}	// S
+    UpdateFuel(speed/120);
+}	// W
 else if(e.keyCode==87 && ableToMove==true){ 
 	planetY+=speed; 
 	planet1.style.top=planetY+"px"; 
 	asteroid1Y+=speed; 
 	asteroid1.style.top=asteroid1Y+"px"; 
-}	// W
+	UpdateFuel(speed/120);
+	
+}	// S
 else if(e.keyCode==83 && ableToMove==true){ 
 	planetY-=speed; 
 	planet1.style.top=planetY+"px"; 
 	asteroid1Y-=speed; 
 	asteroid1.style.top=asteroid1Y+"px"; 
+	UpdateFuel(speed/120);
+}
+
+else if
+(myfuel<=0&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
+	ship1.style.animation="lessFuel 0.5s";
+  	ship1.style.animationIterationCount="infinite";
 }
 else if
-(ableToMove==false&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
+(myhealth<=5&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
 	ship1.style.animation="shake 0.5s";
   	ship1.style.animationIterationCount="infinite";
 }
@@ -103,6 +128,8 @@ EXAMPLE:
 		while it will be the same DIV positioning its self again and again.
 */
 function randomPlanet() {
+	let chance = Math.floor(Math.random() * 250);
+	if (chance==3){
 	let planetleft="-"+window.innerWidth*2;
 	//	LEFT
 	if (planetX<=planetleft) {
@@ -120,7 +147,7 @@ function randomPlanet() {
 		planet1.style.top=planetY+"px";
         let number_for_planet=Math.floor(Math.random() * 50)+1;
         planet1.className ="planetstyle"+number_for_planet;
-	}
+	}}else{}
 }
 function randomAsteroid1() {
 	let asteroid1left="-"+window.innerWidth*2;
@@ -236,6 +263,19 @@ function menuitems(){
 	item5.style.lineHeight=item1.offsetHeight+"px";
 	item6.style.lineHeight=item1.offsetHeight+"px";
 }
+//	 GEAR AND SPEED
+let gearNumber=2;
+    function changeGear() {
+    	if (gearNumber==1){
+    	gearhandle.style.top="14%"; gearNumber++;speed=10;}
+    	else if (gearNumber==2){
+    	gearhandle.style.top="36%"; gearNumber++;speed=20;}
+    	else if (gearNumber==3){
+    	gearhandle.style.top="60%"; gearNumber++;speed=30;}
+    	else if (gearNumber==4){
+    	gearhandle.style.top="82%"; gearNumber=1;speed=40;}
+    	gearhandle.style.transitionDuration="0.5s";
+    }
 
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/
 	// RANDOM PLANET STYLE
@@ -247,6 +287,13 @@ function menuitems(){
 	healthbar.style.width = window.innerWidth/7+"px";
 	health.style.width = window.innerWidth/7.5+"px";
 	var myhealth=health.offsetWidth;
+	// FULL FUEL-BAR SIZE
+	let fuelbar = document.querySelector("#fuelbar");
+	let fuel = document.querySelector("#fuel");
+	fuelbar.style.width = window.innerWidth/10.928+"px";
+	fuel.style.width = window.innerWidth/11.928+"px";
+	var myfuel=fuel.offsetWidth;
+	// MENU STUFF
 	menu.style.right=0-menu.offsetWidth+"px";
 	let item1 = document.querySelector(".item1");
 	let item2 = document.querySelector(".item2");
@@ -255,6 +302,10 @@ function menuitems(){
 	let item5 = document.querySelector(".item5");
 	let item6 = document.querySelector(".item6");
 	let exitnumber=0;
+
+	let gear = document.querySelector("#gear");
+	gear.style.height=window.innerHeight/3.57+"px";
+		gearhandle.style.height=gear.offsetHeight/6.25+"px";
 /*		 CALLING THE FUNCTIONS		*/	
 showMenu();
 planetSize();
@@ -263,3 +314,4 @@ asteroidSize();
 menubuttonSize();
 sidemenuSize();
 menuitems();
+gearSize();

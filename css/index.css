@@ -77,15 +77,10 @@ body{
 	z-index: 21;
 	opacity: 0.8;
 }
-#menubutton:focus{
-	outline: none;
-}
-#menubutton:active{
-	border: none;
-}
-#menubutton:hover{
-	opacity: 1;
-}
+#menubutton:focus{outline: none;}
+#menubutton:active{border: none;}
+#menubutton:hover{opacity: 1;}
+
 .sidemenuItem{
 	background-color: white;
 	width: 100%;
@@ -136,6 +131,50 @@ body{
 	position: relative;
 	background-color: #00E6E7;
 	height: 50px;
+	z-index: 8;
+}
+#fuelbar{
+	background-image: url("../images/UI/fuelbar.png");
+	background-repeat: no-repeat;
+	transform: scaleX(-1);
+	left: -6px;
+	background-size: cover;
+	position: absolute;
+	height: 51px;
+	z-index: 8;
+}
+#fuel{
+	background-image: url("../images/UI/fuel.png");
+	position: relative;
+	background-color: #00E6E7;
+	height: 50px;
+	z-index: 8;
+}
+#gear{
+	width: 10%;
+	transform: translate(0%,-100%);
+	top: 100%;
+	border-top: 5px solid #9EA4AD;
+	border-right: 5px solid #9EA4AD;
+	background-color: #D6DDE7;
+	position: absolute;
+	font-family: monospace;
+	color: #ADADAD;
+	text-align: center;
+	z-index: 8;
+}
+#gearhandle{
+	width: 60%;
+	color: #6D6E6A;
+	font-family: monospace;
+	text-align: center;
+    font-style: italic;
+	transform: translate(-50%,-50%);
+	border-radius: 8%;
+	position: absolute;
+	top: 14%;
+	left: 50%;
+	background-color: #42433E;
 	z-index: 8;
 }
 
@@ -209,4 +248,9 @@ body{
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+/*	 BUGGY	 */
+@keyframes lessFuel {
+	from {filter: grayscale(10%);}
+	to {filter: grayscale(100%);}
 }
