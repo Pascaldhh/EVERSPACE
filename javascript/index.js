@@ -37,11 +37,23 @@ function gearSize() {
 	let geartxt = document.querySelector("samp");
 	geartxt.style.fontSize=window.innerWidth/35+"px";
 	let gearhandle=document.querySelector("#gearhandle");
-
 	gearhandle.style.borderBottom=gearhandle.offsetHeight/2+"px solid #282923";
 	gearhandle.style.fontSize=gearhandle.offsetHeight/4+"px";
+}
+function unitsbarSize(){
+	let unitsbar = document.querySelector("#unitsbar");
+	unitsbar.style.left=healthbar.offsetWidth+"px";
 
 }
+//	  GAME ITEMS AND STUFF
+let inventory={
+
+		Units: 200,
+		Fuel: 0,
+		Tools: 0,
+
+	}
+
 //    MOVEMENTS
 /*
 First of all, all the DIVs are imported from HTML file, in form of variables.
@@ -128,7 +140,7 @@ EXAMPLE:
 		while it will be the same DIV positioning its self again and again.
 */
 function randomPlanet() {
-	let chance = Math.floor(Math.random() * 250);
+	let chance = Math.floor(Math.random() * 350);
 	if (chance==3){
 	let planetleft="-"+window.innerWidth*2;
 	//	LEFT
@@ -302,10 +314,12 @@ let gearNumber=2;
 	let item5 = document.querySelector(".item5");
 	let item6 = document.querySelector(".item6");
 	let exitnumber=0;
-
+	// GEAR STUFF
 	let gear = document.querySelector("#gear");
 	gear.style.height=window.innerHeight/3.57+"px";
-		gearhandle.style.height=gear.offsetHeight/6.25+"px";
+	gearhandle.style.height=gear.offsetHeight/6.25+"px";
+
+	unitsbar.innerHTML="$ "+inventory.Units;
 /*		 CALLING THE FUNCTIONS		*/	
 showMenu();
 planetSize();
@@ -315,3 +329,4 @@ menubuttonSize();
 sidemenuSize();
 menuitems();
 gearSize();
+unitsbarSize();
