@@ -43,7 +43,23 @@ function gearSize() {
 function unitsbarSize(){
 	let unitsbar = document.querySelector("#unitsbar");
 	unitsbar.style.left=healthbar.offsetWidth+"px";
-
+}
+function scanpanelSize() {
+	let scanpanel = document.querySelector("#scanpanel");
+	scanpanel.style.width=scanpanel.offsetHeight+"px";
+	let scan = document.querySelector("#scan");
+	scan.style.top=scanpanel.offsetHeight/20+"px";
+	scan.style.left=scanpanel.offsetWidth/20+"px";
+	scan.style.height="90%";
+	scan.style.width=scan.offsetHeight+"px";
+}
+function buttonSize() {
+	let inventoryButton = document.querySelector("#inventorybutton");
+	inventorybutton.style.height="9%";
+	inventoryButton.style.width=inventoryButton.offsetHeight+"px";
+	inventoryButton.style.left=window.innerWidth-inventoryButton.offsetWidth+"px";
+	inventoryButton.style.top=window.innerHeight-scanpanel.offsetHeight-
+	inventoryButton.offsetHeight+"px";
 }
 //	  GAME ITEMS AND STUFF
 let inventory={
@@ -288,7 +304,24 @@ let gearNumber=2;
     	gearhandle.style.top="82%"; gearNumber=1;speed=40;}
     	gearhandle.style.transitionDuration="0.5s";
     }
-
+//	INVENTORY
+	let inventory1 = document.querySelector("#inventory");
+	let darkscreeninventory=document.querySelector("#darkscreeninventory");
+	let slots = document.querySelector(".slot");
+function showInventory() {
+	 	inventory1.style.display="block";
+	 	darkscreeninventory.style.display="block";
+		inventory1.style.fontSize=inventory1.offsetWidth/12+"px";
+		let s1=document.querySelector(".s1");let s3=document.querySelector(".s3");
+		let s2=document.querySelector(".s2");let s4=document.querySelector(".s4");
+		let s5=document.querySelector(".s5");let s8=document.querySelector(".s8");
+		let s6=document.querySelector(".s6");let s7=document.querySelector(".s7");
+		let s9=document.querySelector(".s9");
+	}
+function closeInventory() {
+		inventory1.style.display="none";
+		darkscreeninventory.style.display="none";
+	}
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/
 	// RANDOM PLANET STYLE
     let number_for_planet=Math.floor(Math.random() * 50)+1;
@@ -330,3 +363,5 @@ sidemenuSize();
 menuitems();
 gearSize();
 unitsbarSize();
+scanpanelSize();
+buttonSize();

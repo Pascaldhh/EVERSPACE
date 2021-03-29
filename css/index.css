@@ -174,7 +174,7 @@ body{
 	z-index: 8;
 }
 #gearhandle{
-	width: 60%;
+	width: 70%;
 	color: #6D6E6A;
 	font-family: monospace;
 	text-align: center;
@@ -207,7 +207,90 @@ body{
 	user-select: none;
 	z-index: 8;
 }
-
+#scanpanel{
+	background-image: url("../images/UI/design5.png");
+	height: 28%;
+	background-color: white;
+	position: absolute;
+	left: 100%;
+	top: 100%;
+	transform: translate(-100%,-100%);
+	z-index: 8;
+	border-top: 5px solid #5A5E5C;
+	border-left: 5px solid #5A5E5C;
+}
+#scan{
+	background-image: url("../images/UI/circle.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	background-color: #14AFDC;
+	border-radius: 100%;
+	position: absolute;
+	animation: rotation 5s infinite linear;
+	z-index: 8;
+}
+#inventorybutton{
+	background-image: url("../images/UI/inventoryicon.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	cursor: pointer;
+}
+#inventorybutton:hover{
+	border-top: 3px solid #D6DDE7;
+	border-radius: 10%;
+}
+#inventory{
+	height: 70%;
+	width: 40%;
+	background-color: #42433E;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: none;
+	border-radius: 2%;
+	border: 8px solid #383934;
+	border-top: 8px solid #6D6E6A;
+	color: #7F7F7F;
+	font-family: monospace;
+	text-align: center;
+	z-index: 20;
+}
+#inventorybackbutton{
+	background-color: #6D6E6A;
+	height: 10%;
+	width: 10%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	z-index: 8;
+}
+.slot{
+	height: 10%;
+	width: 10%;
+	background-color: white;
+	position: absolute;
+	top: 10%;
+	margin: 1px;
+	border: 1px solid red;
+}
+.s1,.s2,.s3{top: 20%; left: 10%;}
+.s4,.s5,.s6{top: 40%;}
+.s7,.s8,.s9{top: 60%;}
+#darkscreeninventory{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.8;
+	z-index: 9;
+	display: none;
+}
 /*    PLANET STYLES    ( 50 PLANETS )		*/
 
 .planetstyle1 {background-image: url("../images/planets/1.png  ");}
