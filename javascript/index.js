@@ -60,13 +60,15 @@ function buttonSize() {
 	inventoryButton.style.left=window.innerWidth-inventoryButton.offsetWidth+"px";
 	inventoryButton.style.top=window.innerHeight-scanpanel.offsetHeight-
 	inventoryButton.offsetHeight+"px";
+	let useitembutton=document.querySelector("#useitembutton");
+	useitembutton.style.fontSize=window.innerWidth/48+"px";
 }
 //	  GAME ITEMS AND STUFF
 let inventory={
 
 		Units: 200,
-		Fuel: 0,
-		Tools: 0,
+		Fuel: 5,
+		Tools:1,
 
 	}
 
@@ -307,21 +309,51 @@ let gearNumber=2;
 //	INVENTORY
 	let inventory1 = document.querySelector("#inventory");
 	let darkscreeninventory=document.querySelector("#darkscreeninventory");
-	let slots = document.querySelector(".slot");
 function showInventory() {
-	 	inventory1.style.display="block";
-	 	darkscreeninventory.style.display="block";
-		inventory1.style.fontSize=inventory1.offsetWidth/12+"px";
-		let s1=document.querySelector(".s1");let s3=document.querySelector(".s3");
-		let s2=document.querySelector(".s2");let s4=document.querySelector(".s4");
-		let s5=document.querySelector(".s5");let s8=document.querySelector(".s8");
-		let s6=document.querySelector(".s6");let s7=document.querySelector(".s7");
-		let s9=document.querySelector(".s9");
+	inventory1.style.display="block";
+	darkscreeninventory.style.display="block";
+	inventory1.style.fontSize=inventory1.offsetWidth/12+"px";
+	infoslot.style.fontSize=inventory1.offsetWidth/35+"px";
+		if (inventory.Tools>0){
+			itemTools.style.display="block";
+			quantityTools.style.display="block";
+			itemTools.style.left=s1.offsetLeft+"px";
+			itemTools.style.top=s1.offsetTop+"px";
+			quantityTools.style.fontSize=s1.offsetHeight/6+"px";
+			quantityTools.innerHTML=inventory.Tools;
+		}else{quantityTools.style.display="none";itemTools.style.display="none";}
+		if (inventory.Fuel>0){
+			itemFuel.style.display="block";
+			quantityFuel.style.display="block";
+			itemFuel.style.left=s2.offsetLeft+"px";
+			itemFuel.style.top=s2.offsetTop+"px";
+			quantityFuel.style.fontSize=s1.offsetHeight/6+"px";
+			quantityFuel.innerHTML=inventory.Fuel;
+		}else{itemFuel.style.display="none";quantityFuel.style.display="none";}
 	}
 function closeInventory() {
-		inventory1.style.display="none";
-		darkscreeninventory.style.display="none";
+	inventory1.style.display="none";
+	darkscreeninventory.style.display="none";
+	bigslot.style.backgroundImage="url(../images/UI/gearhandledesign.png)";
+	bigslot.style.backgroundRepeat="repeat";
+	bigslot.style.backgroundSize="initial";
+	infoslot.innerHTML="<br>Select Item to view details"
 	}
+function itemClick(itemName) {
+	 if(itemName=="itemTools"){
+	 	bigslot.style.backgroundImage="url('../images/UI/toolsicon.png')"
+	 	infoslot.innerHTML="Tools<br>Quantity: "+inventory.Tools+
+		"<br>Used to repair the spaceship.";
+	 }
+else if(itemName=="itemFuel"){
+		bigslot.style.backgroundImage="url('../images/UI/fuelicon.png')"
+		infoslot.innerHTML="Fuel Tank<br>Quantity: "+inventory.Fuel+
+		"<br>Used to refill the spaceship.";
+	 }
+		bigslot.style.backgroundRepeat="no-repeat";
+		bigslot.style.backgroundSize="cover";
+}
+
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/
 	// RANDOM PLANET STYLE
     let number_for_planet=Math.floor(Math.random() * 50)+1;
@@ -351,8 +383,21 @@ function closeInventory() {
 	let gear = document.querySelector("#gear");
 	gear.style.height=window.innerHeight/3.57+"px";
 	gearhandle.style.height=gear.offsetHeight/6.25+"px";
-
 	unitsbar.innerHTML="$ "+inventory.Units;
+	// INVENTORY STUFF
+	let s1=document.querySelector(".s1");let s3=document.querySelector(".s3");
+	let s2=document.querySelector(".s2");let s4=document.querySelector(".s4");
+	let s5=document.querySelector(".s5");let s8=document.querySelector(".s8");
+	let s6=document.querySelector(".s6");let s7=document.querySelector(".s7");
+	let s9=document.querySelector(".s9");
+	let itemTools=document.querySelector(".itemTools");
+	let quantityTools=document.querySelector(".quantityTools");
+	let itemFuel=document.querySelector(".itemFuel");
+	let quantityFuel=document.querySelector(".quantityFuel");
+	let quantity=document.querySelector(".quantity");
+	let bigslot=document.querySelector("#bigslot");
+	let infoslot=document.querySelector("#infoslot");
+	
 /*		 CALLING THE FUNCTIONS		*/	
 showMenu();
 planetSize();

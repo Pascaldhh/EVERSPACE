@@ -245,6 +245,7 @@ body{
 	height: 70%;
 	width: 40%;
 	background-color: #42433E;
+	background-image: url("../images/UI/design1.png");
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -253,7 +254,7 @@ body{
 	border-radius: 2%;
 	border: 8px solid #383934;
 	border-top: 8px solid #6D6E6A;
-	color: #7F7F7F;
+	color: #4DDFE0;
 	font-family: monospace;
 	text-align: center;
 	z-index: 20;
@@ -268,18 +269,88 @@ body{
 	cursor: pointer;
 	z-index: 8;
 }
-.slot{
-	height: 10%;
-	width: 10%;
-	background-color: white;
+#bigslot{
+	height: 20%;
+	width: 20%;
+	background-image: url("../images/UI/gearhandledesign.png");
+	background-color: black;
+	border: 3px solid #88D9DA;
 	position: absolute;
-	top: 10%;
-	margin: 1px;
-	border: 1px solid red;
+	left: 22.5%;top: 15%;
+	transition-duration: 0.5s;
 }
-.s1,.s2,.s3{top: 20%; left: 10%;}
-.s4,.s5,.s6{top: 40%;}
-.s7,.s8,.s9{top: 60%;}
+#infoslot{
+	height: 20%;
+	background-image: url("../images/UI/design6.png");
+	width: 30%;
+	background-color: #6A6A67;
+	border: 3px solid #88D9DA;
+	position: absolute;
+	left: 47.5%;top: 15%;
+	font-size: large;
+	transition-duration: 0.5s;
+	color: white;
+}
+.slot{
+	height: 15%;
+	width: 15%;
+	background-image: url("../images/UI/gearhandledesign.png");
+	background-color: black;
+	position: absolute;
+	border: 3px solid #88D9DA;
+}
+.s1{left: 22.5%;top: 40%;}
+.s2{left: 42.5%;top: 40%;}
+.s3{left: 62.5%;top: 40%;}
+
+.s4{left: 22.5%;top: 60%;}
+.s5{left: 42.5%;top: 60%;}
+.s6{left: 62.5%;top: 60%;}
+
+.s7{left: 22.5%;top: 80%;}
+.s8{left: 42.5%;top: 80%;}
+.s9{left: 62.5%;top: 80%;}
+#useitembutton{
+	left: 82.5%;top: 15%;
+	position: absolute;
+	width: 12%;
+	height: 8%;
+	background-color: #787875;
+	border-bottom: 8px solid #ABB1BA;
+	border-radius: 5px;
+	cursor: pointer;
+	user-select: none;
+}
+#useitembutton:active{
+	border-bottom: 5px solid #8D9094;
+	transform: translateY(2px);
+	color: #36ADAE;
+}
+/*	 ITEMS	*/
+.quantity{
+	height: 22%;width: 22%;
+	position: absolute;
+	display: none;
+	left: 100%;top: 100%;
+	transform: translate(-50%,-50%);
+	background-color: #058CE6;
+	border-radius: 100%;
+	color: white;
+	border: 1px solid white;
+	user-select: none;
+}
+.item{
+	height: 15%;
+	width: 15%;
+	position: absolute;
+	border: 3px solid #88D9DA;
+	display: none;	
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.itemTools{background-image: url("../images/UI/toolsicon.png");}
+.itemFuel{background-image: url("../images/UI/fuelicon.png");}
+
 #darkscreeninventory{
 	height: 100%;
 	width: 100%;

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="icon" href="../icon/icon.png">
-    <body onresize="spaceshipSize(); planetSize(); UpdateHealth(); asteroidSize(); menuitems(); ">
+    <body onresize="spaceshipSize(); planetSize(); UpdateHealth(); asteroidSize(); menuitems(); buttonSize(); scanpanelSize();">
     <title>EVERSPACE</title>
 </head>
 <body>
 	<!--	UI	  -->
 	<div id="sidemenu">
 		<div class="sidemenuItem item1" onclick="view();">Enter full screen</div>
-		<div class="sidemenuItem item2">Inventory</div>
+		<div class="sidemenuItem item2" onclick="showInventory();">Inventory</div>
 		<div class="sidemenuItem item3">item 3</div>
 		<div class="sidemenuItem item4">item 4</div>
 		<div class="sidemenuItem item5">item 5</div>
@@ -27,9 +27,14 @@
     <div id="inventorybutton" onclick="showInventory();"></div>
     <div id="inventory">INVENTORY
         <div id="inventorybackbutton" onclick="closeInventory();"></div>
+        <div id="bigslot"></div><div id="infoslot"><br>Select Item to view details</div>
+        <div id="useitembutton">USE</div>
         <div class="slot s1"></div><div class="slot s2"></div><div class="slot s3"></div>
         <div class="slot s4"></div><div class="slot s5"></div><div class="slot s6"></div>
         <div class="slot s7"></div><div class="slot s8"></div><div class="slot s9"></div>
+    <!--  ITEMS  -->
+    <div class="item itemTools" onclick="itemClick('itemTools')"><div class="quantity quantityTools"></div></div>
+    <div class="item itemFuel" onclick="itemClick('itemFuel')"><div class="quantity quantityFuel"></div></div>
     </div>
     <div id="darkscreeninventory"></div>
 	<!--	Others	-->
