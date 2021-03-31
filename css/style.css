@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap'); /* Open Sans Font */
-
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
     background: url('../images/bg.png') no-repeat;
     background-size: cover;
@@ -19,7 +17,6 @@ body {
     align-items: center;
     flex-direction: column;
 }
-
 .top {
     height: 50%;
     display: flex;
@@ -40,34 +37,24 @@ body {
     transform: scaleY(2);
     text-align: center;
 }
-br {
-    display:inline;
-}
+br {display:inline;}
 .btns {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.btn {
-    padding: 20px 0;
-}
+.btn {padding: 20px 0;}
 .btn button {
     height: 50px;
     width: 280px;
-  
     border-radius: 5px;
-    
     border: none;
     outline: none;
     color: black;
     font-size: 36px;
     font-family: monospace;
-
     transform: skewX(-12deg);
     opacity: 0.6;
-    
-
-
     /* Don't touch anything below this */
     background: rgba( 255, 255, 255, 0.60 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -83,15 +70,10 @@ br {
     color: #FFFEF8;
     font-weight: bold;
 }
-.logo, .btn button {
-    user-select: none;
-}
-
+.logo, .btn button {user-select: none;}
 button:hover {
-
     cursor: pointer;
-    transition: 1s;
-
+    transition: 0.5s;
     /* Don't touch anything below this */
     background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -101,12 +83,6 @@ button:hover {
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     /* Don't touch anything above this */
 }
-
 @media(min-width:545px) {
-    .logo h1 {
-        font-size: 100px;
-    }
-    br {
-        display: none;
-    }
-}
+    .logo h1 {font-size: 100px;}
+    br {display: none;}}

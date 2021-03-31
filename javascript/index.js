@@ -32,6 +32,7 @@ function UpdateFuel(arg) {
 	myfuel-=arg;
 	fuel.style.width=myfuel+"px";
 	if (myfuel<=0){ableToMove=false; ship.style.filter="grayscale(100%)";}
+	else if (myfuel>0){ableToMove=true; ship.style.filter="none";}
 }
 function gearSize() {
 	let geartxt = document.querySelector("samp");
@@ -62,16 +63,21 @@ function buttonSize() {
 	inventoryButton.offsetHeight+"px";
 	let useitembutton=document.querySelector("#useitembutton");
 	useitembutton.style.fontSize=window.innerWidth/48+"px";
+	let helpbutton = document.querySelector("#helpbutton");
+	helpbutton.style.height=inventorybutton.offsetHeight+"px";
+	helpbutton.style.width=inventorybutton.offsetHeight+"px";
+	let Inum=inventorybutton.offsetHeight;
+	helpbutton.style.top=inventorybutton.offsetTop+"px";
+	helpbutton.style.left=inventorybutton.offsetLeft-helpbutton.offsetWidth+"px";
 }
 //	  GAME ITEMS AND STUFF
 let inventory={
 
 		Units: 200,
 		Fuel: 5,
-		Tools:1,
+		Tools:2,
 
 	}
-
 //    MOVEMENTS
 /*
 First of all, all the DIVs are imported from HTML file, in form of variables.
@@ -88,7 +94,7 @@ var asteroid1X=window.innerWidth*2;
 var planetY=Math.floor(Math.random()* window.innerHeight);
 var asteroid1Y=Math.floor(Math.random()* window.innerHeight);
 let ableToMove=true;
-let speed = 10;
+let speed = 10;let Enum=1;
 /*
 A function for getting key-inputs and working with them, is declared below.
 It contains the "W, A, S, D" keys for movement.
@@ -117,7 +123,6 @@ else if(e.keyCode==87 && ableToMove==true){
 	asteroid1Y+=speed; 
 	asteroid1.style.top=asteroid1Y+"px"; 
 	UpdateFuel(speed/120);
-	
 }	// S
 else if(e.keyCode==83 && ableToMove==true){ 
 	planetY-=speed; 
@@ -125,10 +130,15 @@ else if(e.keyCode==83 && ableToMove==true){
 	asteroid1Y-=speed; 
 	asteroid1.style.top=asteroid1Y+"px"; 
 	UpdateFuel(speed/120);
+}	// E
+else if(e.keyCode==69){
+	if(Enum==1){showInventory();Enum=2;} 
+	else if(Enum==2){closeInventory();Enum=1;}
+}	// SPACE
+else if(e.keyCode==32){
+	changeGear();
 }
-
-else if
-(myfuel<=0&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
+else if(myfuel<=0&&e.keyCode==83||e.keyCode==87||e.keyCode==65||e.keyCode==68){
 	ship1.style.animation="lessFuel 0.5s";
   	ship1.style.animationIterationCount="infinite";
 }
@@ -139,7 +149,8 @@ else if
 }
 	// END OF KEYS
     randomPlanet();
-    randomAsteroid1();
+    randomAsteroid1();//alert(e.keyCode);
+
 }
 planet1.style.left=planetX+"px";
 planet1.style.top=planetY+"px";
@@ -168,7 +179,7 @@ function randomPlanet() {
 		planetY=Math.floor(Math.random()* window.innerHeight);
 		planet1.style.top=planetY+"px";
         let number_for_planet=Math.floor(Math.random() * 50)+1;
-        planet1.className ="planetstyle"+number_for_planet;
+        planet1.style.backgroundImage="url('../images/planets/"+number_for_planet+".png')";
 	}//  RIGHT
 	else if (planetX>=window.innerWidth*2) {
 		planetX=-window.innerWidth+Math.floor(Math.random()* 500);
@@ -176,7 +187,7 @@ function randomPlanet() {
 		planetY=Math.floor(Math.random()* window.innerHeight);
 		planet1.style.top=planetY+"px";
         let number_for_planet=Math.floor(Math.random() * 50)+1;
-        planet1.className ="planetstyle"+number_for_planet;
+        planet1.style.backgroundImage="url('../images/planets/"+number_for_planet+".png')";
 	}}else{}
 }
 function randomAsteroid1() {
@@ -195,7 +206,6 @@ function randomAsteroid1() {
 		asteroid1.style.top=asteroid1Y+"px";
 	}
 }
-
 /*	 COLLISION DETECTION (ASTEROID1)	*/
 var astr1 = document.querySelector('#asteroid1'),
     ship1 = document.getElementById('spaceship');
@@ -307,8 +317,6 @@ let gearNumber=2;
     	gearhandle.style.transitionDuration="0.5s";
     }
 //	INVENTORY
-	let inventory1 = document.querySelector("#inventory");
-	let darkscreeninventory=document.querySelector("#darkscreeninventory");
 function showInventory() {
 	inventory1.style.display="block";
 	darkscreeninventory.style.display="block";
@@ -334,11 +342,15 @@ function showInventory() {
 function closeInventory() {
 	inventory1.style.display="none";
 	darkscreeninventory.style.display="none";
+	basicinventory();
+	selectedItem="";
+	}
+function basicinventory(){
 	bigslot.style.backgroundImage="url(../images/UI/gearhandledesign.png)";
 	bigslot.style.backgroundRepeat="repeat";
 	bigslot.style.backgroundSize="initial";
 	infoslot.innerHTML="<br>Select Item to view details"
-	}
+}
 function itemClick(itemName) {
 	 if(itemName=="itemTools"){
 	 	bigslot.style.backgroundImage="url('../images/UI/toolsicon.png')"
@@ -352,18 +364,86 @@ else if(itemName=="itemFuel"){
 	 }
 		bigslot.style.backgroundRepeat="no-repeat";
 		bigslot.style.backgroundSize="cover";
+		selectedItem=itemName;
 }
+function useitem(){
 
+		//	 	TOOLS TOOLS TOOLS TOOLS TOOLS TOOLS 
+if(selectedItem=="itemTools"&&myhealth<window.innerWidth/7.5){
+
+if(inventory.Tools==1){
+	showInventory();
+	basicinventory();
+	selectedItem="";
+if (myhealth>window.innerWidth/7.5-$tools){
+	myhealth=window.innerWidth/7.5;
+	inventory.Tools=0;
+	showInventory();ableToMove=true;
+}
+else {myhealth+=$tools;inventory.Tools=0;showInventory();ableToMove=true;}
+health.style.width=myhealth+"px";itemClick("itemTools");}
+
+else if(inventory.Tools>1&&myhealth<window.innerWidth/7.5){
+	showInventory();
+	itemClick(selectedItem);
+if (myhealth>window.innerWidth/7.5-$tools&&myhealth<window.innerWidth/7.5){
+	myhealth=window.innerWidth/7.5;
+	inventory.Tools-=1;ableToMove=true;
+	showInventory();
+}
+else {myhealth+=$tools;inventory.Tools-=1;showInventory();ableToMove=true;}
+	health.style.width=myhealth+"px";itemClick("itemTools");}
+}health.style.width=myhealth+"px";
+		//	 	FUEL FUEL FUEL FUEL FUEL FUEL
+if(selectedItem=="itemFuel"&&myfuel<window.innerWidth/11.928){
+
+if(inventory.Fuel==1){
+	showInventory();
+	basicinventory();
+	selectedItem="";
+if (myfuel>window.innerWidth/11.928-$fuel){
+	myfuel=window.innerWidth/11.928;
+	inventory.Fuel=0;ableToMove=true;
+	showInventory();
+}
+else {myfuel+=$fuel;inventory.Fuel=0;showInventory();ableToMove=true;}
+fuel.style.width=myfuel+"px";itemClick("itemFuel");}
+
+else if(inventory.Fuel>1&&myfuel<window.innerWidth/11.928){
+	showInventory();
+	itemClick(selectedItem);ableToMove=true;
+if (myfuel>window.innerWidth/11.928-$fuel&&myfuel<window.innerWidth/11.928){
+	myfuel=window.innerWidth/11.928;
+	inventory.Fuel-=1;
+	showInventory();
+}
+else {myfuel+=$fuel;inventory.Fuel-=1;showInventory();ableToMove=true;}
+	fuel.style.width=myfuel+"px";itemClick("itemFuel");}
+}
+	//  	THE ENT OF THE FUNCTION
+}
+function useitembuttonpress(){
+	if(selectedItem!=""){inventory1.style.borderTop="8px solid #4DDFE0";
+	inventory1.style.backgroundImage="url('../images/UI/design7.png')";
+}}
+function useitembuttonrelease(){inventory1.style.borderTop="8px solid #6D6E6A";
+	inventory1.style.backgroundImage="url('../images/UI/design1.png')";
+}
+let movingscreen=document.querySelector("#movingscreen");
+	//document.onkeydown = moveanime;
+	function moveanime(k) {
+		if (k.keyCode==68){movingscreen.style.display="block";}
+	}
 /*	THINGS THAT SHOULD BE DONE ONLY WHEN WEBSITE IS LOADED	*/
 	// RANDOM PLANET STYLE
     let number_for_planet=Math.floor(Math.random() * 50)+1;
-    planet1.className ="planetstyle"+number_for_planet;
+    planet1.style.backgroundImage="url('../images/planets/"+number_for_planet+".png')";
     // FULL HEALTH-BAR SIZE
    	let healthbar = document.querySelector("#healthbar");
 	let health = document.querySelector("#health");
 	healthbar.style.width = window.innerWidth/7+"px";
 	health.style.width = window.innerWidth/7.5+"px";
-	var myhealth=health.offsetWidth;
+	let myhealth=window.innerWidth/7.5;
 	// FULL FUEL-BAR SIZE
 	let fuelbar = document.querySelector("#fuelbar");
 	let fuel = document.querySelector("#fuel");
@@ -385,6 +465,8 @@ else if(itemName=="itemFuel"){
 	gearhandle.style.height=gear.offsetHeight/6.25+"px";
 	unitsbar.innerHTML="$ "+inventory.Units;
 	// INVENTORY STUFF
+	let inventory1 = document.querySelector("#inventory");
+	let darkscreeninventory=document.querySelector("#darkscreeninventory");
 	let s1=document.querySelector(".s1");let s3=document.querySelector(".s3");
 	let s2=document.querySelector(".s2");let s4=document.querySelector(".s4");
 	let s5=document.querySelector(".s5");let s8=document.querySelector(".s8");
@@ -397,6 +479,10 @@ else if(itemName=="itemFuel"){
 	let quantity=document.querySelector(".quantity");
 	let bigslot=document.querySelector("#bigslot");
 	let infoslot=document.querySelector("#infoslot");
+	let selectedItem="";
+	// ITEMS AND VALUES
+	let $fuel=Math.floor(myfuel/2);
+	let $tools=Math.floor(myhealth/5);
 	
 /*		 CALLING THE FUNCTIONS		*/	
 showMenu();

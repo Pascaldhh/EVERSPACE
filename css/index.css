@@ -1,17 +1,21 @@
+.bgNoRepeat{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.centerFont{
+	text-align: center;
+	font-family: monospace;
+}
 body{
 	margin: 0;
 	padding: 0;
 	background-color: darkblue;
 	background-image: url("../images/space-1.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
 	overflow: hidden;
 }
 #spaceship{
 	background-image: url("../images/spaceship.gif");
 	text-align: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 	margin: 0;
 	position: absolute;
 	z-index: 10;
@@ -19,8 +23,6 @@ body{
 #planet{
 	animation: rotation 120s infinite linear;
 	box-shadow: 0 0 50px 20px black inset;
-	background-repeat: no-repeat;
-	background-size: cover;
 	position: absolute;
 	height: 150px;
 	width: 150px;
@@ -49,8 +51,6 @@ body{
 	position: absolute;
 	animation: rotation 20s infinite linear;
 	background-image:url(../images/planets/astroid.png);
-	background-size: cover;
-	background-repeat: no-repeat;
 }
 /*	  UI    */
 #sidemenu{
@@ -91,11 +91,11 @@ body{
 	background-image: url("../images/UI/design2.png");
 	position: absolute;
 	display: block;
-	text-align: center;
 	vertical-align: middle;
-	font-family: monospace;
 	transition-duration: 0.35s;
 	user-select: none;
+	text-align: center;
+	font-family: monospace;
 }
 .sidemenuItem:hover{
 	background-image: url("../images/UI/design1.png");
@@ -113,6 +113,7 @@ body{
 	text-align: center;
 	vertical-align: middle;
 	font-family: monospace;
+	text-align: center;
 	transition-duration: 0.35s;
 	user-select: none;
 }
@@ -124,8 +125,6 @@ body{
 }
 #healthbar{
 	background-image: url("../images/UI/healthbar.png");
-	background-repeat: no-repeat;
-	background-size: cover;
 	transform: scaleX(-1);
 	position: absolute;
 	top: -1px;
@@ -142,10 +141,8 @@ body{
 }
 #fuelbar{
 	background-image: url("../images/UI/fuelbar.png");
-	background-repeat: no-repeat;
 	transform: scaleX(-1);
 	left: -6px;
-	background-size: cover;
 	position: absolute;
 	height: 51px;
 	z-index: 8;
@@ -160,16 +157,14 @@ body{
 #gear{
 	width: 9%;
 	transform: translate(0%,-100%);
+	box-shadow: 0 0 30px 5px black inset;
 	top: 100%;
-	border-top: 5px solid #9EA4AD;
-	border-right: 5px solid #9EA4AD;
+	border-top: 5px solid #2C2D2D;
+	border-right: 5px solid #2C2D2D;
 	background-color: #D6DDE7;
 	position: absolute;
-	font-family: monospace;
 	color: #7F7F7F;
-	text-align: center;
 	background-image: url("../images/UI/geardesign.png");
-	background-repeat: repeat;
 	user-select: none;
 	z-index: 8;
 }
@@ -188,20 +183,15 @@ body{
 	left: 50%;
 	background-color: #42433E;
 	background-image: url("../images/UI/gearhandledesign.png");
-	background-repeat: repeat;
 	z-index: 8;
 }
 #unitsbar{
 	background-image: url("../images/UI/button1.png");
-	background-repeat: no-repeat;
-	background-size: cover;
 	width: 16%;
 	height: 53px;
 	background-color: white;
-	text-align: center;
 	position: absolute;
 	color: #88D9DA;
-	font-family: monospace;
 	font-size: 28px;
 	top: 0;
 	user-select: none;
@@ -221,8 +211,6 @@ body{
 }
 #scan{
 	background-image: url("../images/UI/circle.png");
-	background-repeat: no-repeat;
-	background-size: cover;
 	text-align: center;
 	background-color: #14AFDC;
 	border-radius: 100%;
@@ -232,14 +220,13 @@ body{
 }
 #inventorybutton{
 	background-image: url("../images/UI/inventoryicon.png");
-	background-repeat: no-repeat;
-	background-size: cover;
 	position: absolute;
 	cursor: pointer;
+	transition-duration: 0.4s;
+	z-index: 8;
 }
 #inventorybutton:hover{
-	border-top: 3px solid #D6DDE7;
-	border-radius: 10%;
+	transform: translateY(-10%);
 }
 #inventory{
 	height: 70%;
@@ -250,24 +237,26 @@ body{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	transition-duration: 0.4s;
 	display: none;
 	border-radius: 2%;
 	border: 8px solid #383934;
 	border-top: 8px solid #6D6E6A;
 	color: #4DDFE0;
-	font-family: monospace;
-	text-align: center;
 	z-index: 20;
 }
 #inventorybackbutton{
-	background-color: #6D6E6A;
-	height: 10%;
+	background-image: url("../images/UI/crossbutton.png");
+	height: 11%;
 	width: 10%;
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: -8px;
+	left: -8px;
 	cursor: pointer;
 	z-index: 8;
+}
+#inventorybackbutton:active{
+	transform: translateY(10%);
 }
 #bigslot{
 	height: 20%;
@@ -345,12 +334,21 @@ body{
 	position: absolute;
 	border: 3px solid #88D9DA;
 	display: none;	
-	background-repeat: no-repeat;
-	background-size: cover;
 }
-.itemTools{background-image: url("../images/UI/toolsicon.png");}
-.itemFuel{background-image: url("../images/UI/fuelicon.png");}
+.itemTools{background-image: url("../images/UI/toolsicon.png");cursor: pointer;}
+.itemFuel{background-image: url("../images/UI/fuelicon.png");cursor: pointer;}
 
+#helpbutton{
+	background-image: url("../images/UI/helpbutton.png");
+	position: absolute;
+	margin-bottom: 1px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	z-index: 8;
+}
+#helpbutton:hover{
+	transform: translateY(-10%);
+}
 #darkscreeninventory{
 	height: 100%;
 	width: 100%;
@@ -362,58 +360,15 @@ body{
 	z-index: 9;
 	display: none;
 }
-/*    PLANET STYLES    ( 50 PLANETS )		*/
-
-.planetstyle1 {background-image: url("../images/planets/1.png  ");}
-.planetstyle2 {background-image: url("../images/planets/2.png  ");}
-.planetstyle3 {background-image: url("../images/planets/3.png  ");}
-.planetstyle4 {background-image: url("../images/planets/4.png  ");}
-.planetstyle5 {background-image: url("../images/planets/5.png  ");}
-.planetstyle6 {background-image: url("../images/planets/6.png  ");}
-.planetstyle7 {background-image: url("../images/planets/7.png  ");}
-.planetstyle8 {background-image: url("../images/planets/8.png  ");}
-.planetstyle9 {background-image: url("../images/planets/9.png  ");}
-.planetstyle10{background-image: url("../images/planets/10.png ");}
-.planetstyle11{background-image: url("../images/planets/11.png ");}
-.planetstyle12{background-image: url("../images/planets/12.png ");}
-.planetstyle13{background-image: url("../images/planets/13.png ");}
-.planetstyle14{background-image: url("../images/planets/14.png ");}
-.planetstyle15{background-image: url("../images/planets/15.png ");}
-.planetstyle16{background-image: url("../images/planets/16.png ");}
-.planetstyle17{background-image: url("../images/planets/17.png ");}
-.planetstyle18{background-image: url("../images/planets/18.png ");}
-.planetstyle19{background-image: url("../images/planets/19.png ");}
-.planetstyle20{background-image: url("../images/planets/20.png ");}
-.planetstyle21{background-image: url("../images/planets/21.png ");}
-.planetstyle22{background-image: url("../images/planets/22.png ");}
-.planetstyle23{background-image: url("../images/planets/23.png ");}
-.planetstyle24{background-image: url("../images/planets/24.png ");}
-.planetstyle25{background-image: url("../images/planets/25.png ");}
-.planetstyle26{background-image: url("../images/planets/26.png ");}
-.planetstyle27{background-image: url("../images/planets/27.png ");}
-.planetstyle28{background-image: url("../images/planets/28.png ");}
-.planetstyle29{background-image: url("../images/planets/29.png ");}
-.planetstyle30{background-image: url("../images/planets/30.png ");}
-.planetstyle31{background-image: url("../images/planets/31.png ");}
-.planetstyle32{background-image: url("../images/planets/32.png ");}
-.planetstyle33{background-image: url("../images/planets/33.png ");}
-.planetstyle34{background-image: url("../images/planets/34.png ");}
-.planetstyle35{background-image: url("../images/planets/35.png ");}
-.planetstyle36{background-image: url("../images/planets/36.png ");}
-.planetstyle37{background-image: url("../images/planets/37.png ");}
-.planetstyle38{background-image: url("../images/planets/38.png ");}
-.planetstyle39{background-image: url("../images/planets/39.png ");}
-.planetstyle40{background-image: url("../images/planets/40.png ");}
-.planetstyle41{background-image: url("../images/planets/41.png ");}
-.planetstyle42{background-image: url("../images/planets/42.png ");}
-.planetstyle43{background-image: url("../images/planets/43.png ");}
-.planetstyle44{background-image: url("../images/planets/44.png ");}
-.planetstyle45{background-image: url("../images/planets/45.png ");}
-.planetstyle46{background-image: url("../images/planets/46.png ");}
-.planetstyle47{background-image: url("../images/planets/47.png ");}
-.planetstyle48{background-image: url("../images/planets/48.png ");}
-.planetstyle49{background-image: url("../images/planets/49.png ");}
-.planetstyle50{background-image: url("../images/planets/50.png ");}
+#movingscreen{
+	background-image: url("../images/UI/move4.gif");
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;left: 0;
+	display: none;
+	opacity: 0.3;
+}
 /*	 ROTATION OF PLANETS	*/
 @keyframes rotation {
   from {transform: rotate(0deg);}

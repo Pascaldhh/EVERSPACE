@@ -8,39 +8,40 @@
     <body onresize="spaceshipSize(); planetSize(); UpdateHealth(); asteroidSize(); menuitems(); buttonSize(); scanpanelSize();">
     <title>EVERSPACE</title>
 </head>
-<body>
+<body class="bgNoRepeat">
 	<!--	UI	  -->
 	<div id="sidemenu">
 		<div class="sidemenuItem item1" onclick="view();">Enter full screen</div>
 		<div class="sidemenuItem item2" onclick="showInventory();">Inventory</div>
-		<div class="sidemenuItem item3">item 3</div>
+		<div class="sidemenuItem item3">Help</div>
 		<div class="sidemenuItem item4">item 4</div>
 		<div class="sidemenuItem item5">item 5</div>
 		<div class="sidemenuItem item6" onclick="exit();">Exit to main-menu</div>
 	</div>
 	<button id="menubutton" onclick="showMenu();"></button>
-	<div id="health" title=":  Health  :"><div id="healthbar"></div></div>
-    <div id="fuel" title=":  Fuel  :"><div id="fuelbar"></div></div>
-    <div id="gear"><samp>1<br>2<br>3<br>4</samp><div id="gearhandle" onclick="changeGear()">EVERSPACE</div></div>
-    <div id="unitsbar" title=":  Uints  :"></div>
-    <div id="scanpanel"><div id="scan"></div></div>
-    <div id="inventorybutton" onclick="showInventory();"></div>
-    <div id="inventory">INVENTORY
-        <div id="inventorybackbutton" onclick="closeInventory();"></div>
+	<div id="health" title=":  Health  :"><div id="healthbar" class="bgNoRepeat"></div></div>
+    <div id="fuel" title=":  Fuel  :"><div id="fuelbar" class="bgNoRepeat"></div></div>
+    <div id="gear" class="centerFont"><samp>1<br>2<br>3<br>4</samp><div id="gearhandle" onclick="changeGear()">EVERSPACE</div></div>
+    <div id="unitsbar" title=":  Uints  :" class="bgNoRepeat centerFont"></div>
+    <div id="scanpanel"><div id="scan" class="bgNoRepeat"></div></div>
+    <div id="inventorybutton" onclick="showInventory();" class="bgNoRepeat"></div>
+    <div id="inventory" class="centerFont">INVENTORY
+        <div id="inventorybackbutton" onclick="closeInventory();" class="bgNoRepeat"></div>
         <div id="bigslot"></div><div id="infoslot"><br>Select Item to view details</div>
-        <div id="useitembutton">USE</div>
+        <div id="useitembutton"onclick="useitem();"onmousedown="useitembuttonpress();" onmouseup="useitembuttonrelease()">USE</div>
         <div class="slot s1"></div><div class="slot s2"></div><div class="slot s3"></div>
         <div class="slot s4"></div><div class="slot s5"></div><div class="slot s6"></div>
         <div class="slot s7"></div><div class="slot s8"></div><div class="slot s9"></div>
     <!--  ITEMS  -->
-    <div class="item itemTools" onclick="itemClick('itemTools')"><div class="quantity quantityTools"></div></div>
-    <div class="item itemFuel" onclick="itemClick('itemFuel')"><div class="quantity quantityFuel"></div></div>
-    </div>
-    <div id="darkscreeninventory"></div>
+    <div class="item itemTools bgNoRepeat" onclick="itemClick('itemTools')"><div class="quantity quantityTools"></div></div>
+    <div class="item itemFuel bgNoRepeat" onclick="itemClick('itemFuel')"><div class="quantity quantityFuel"></div></div></div>
+    <a href="../html/help.html" target="blank"><div id="helpbutton" class="bgNoRepeat"></div></a>
+    <div id="darkscreeninventory" onclick="closeInventory();"></div>
+    <div id="movingscreen"></div>
 	<!--	Others	-->
-    <div id="spaceship"></div>
-    <div id="planet"><div id="planet2"></div></div>
-    <div id="asteroid1"></div>
+    <div id="spaceship" class="bgNoRepeat"></div>
+    <div id="planet" class="bgNoRepeat"><div id="planet2"></div></div>
+    <div id="asteroid1" class="bgNoRepeat"></div>
     <div id="asteroid2"></div>
     <div id="alienship"></div>
     <div id="spacestation"></div>
